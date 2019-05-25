@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50235/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50235/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50235/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService1" />
+      <xsd:import schemaLocation="http://localhost:50235/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetListExperts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExperts" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListExperts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpertsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListCriterions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCriterions" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListCriterions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCriterionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListProjects" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListCurrentExpertises_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCurrentExpertises" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListCurrentExpertises_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCurrentExpertisesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListCompletedExpertises_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCompletedExpertises" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListCompletedExpertises_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCompletedExpertisesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListExpertisesCriterions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpertisesCriterions" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListExpertisesCriterions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpertisesCriterionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListExpertiseReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpertiseReport" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListExpertiseReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpertiseReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListExpertiseReportPospelov_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpertiseReportPospelov" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListExpertiseReportPospelov_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpertiseReportPospelovResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListExpertisePospelov_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpertisePospelov" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetListExpertisePospelov_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpertisePospelovResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetIdExpert_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIdExpert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetIdExpert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIdExpertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddExperisePattern_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExperisePattern" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddExperisePattern_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExperisePatternResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddExperisePospelov_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExperisePospelov" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddExperisePospelov_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExperisePospelovResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddExpert_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExpert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddExpert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExpertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddCriterion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCriterion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddCriterion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCriterionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProject" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddMark_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMark" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddMark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddResultExpert_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddResultExpert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddResultExpert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddResultExpertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddStatusExpertiseExpert_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStatusExpertiseExpert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddStatusExpertiseExpert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStatusExpertiseExpertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddStatusExpertise_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStatusExpertise" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddStatusExpertise_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStatusExpertiseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddMarkPospelov_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMarkPospelov" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddMarkPospelov_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMarkPospelovResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddResultMarkPospelov_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddResultMarkPospelov" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddResultMarkPospelov_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddResultMarkPospelovResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditCriterion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditCriterion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditCriterion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCriterionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditExpert_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditExpert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditExpert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditExpertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditProject" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditProjectResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetListExperts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetListExperts" message="tns:IService1_GetListExperts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetListExpertsResponse" message="tns:IService1_GetListExperts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListCriterions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetListCriterions" message="tns:IService1_GetListCriterions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetListCriterionsResponse" message="tns:IService1_GetListCriterions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetListProjects" message="tns:IService1_GetListProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetListProjectsResponse" message="tns:IService1_GetListProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListCurrentExpertises">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetListCurrentExpertises" message="tns:IService1_GetListCurrentExpertises_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetListCurrentExpertisesResponse" message="tns:IService1_GetListCurrentExpertises_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListCompletedExpertises">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetListCompletedExpertises" message="tns:IService1_GetListCompletedExpertises_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetListCompletedExpertisesResponse" message="tns:IService1_GetListCompletedExpertises_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListExpertisesCriterions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetListExpertisesCriterions" message="tns:IService1_GetListExpertisesCriterions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetListExpertisesCriterionsResponse" message="tns:IService1_GetListExpertisesCriterions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListExpertiseReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetListExpertiseReport" message="tns:IService1_GetListExpertiseReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetListExpertiseReportResponse" message="tns:IService1_GetListExpertiseReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListExpertiseReportPospelov">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetListExpertiseReportPospelov" message="tns:IService1_GetListExpertiseReportPospelov_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetListExpertiseReportPospelovResponse" message="tns:IService1_GetListExpertiseReportPospelov_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListExpertisePospelov">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetListExpertisePospelov" message="tns:IService1_GetListExpertisePospelov_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetListExpertisePospelovResponse" message="tns:IService1_GetListExpertisePospelov_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdExpert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetIdExpert" message="tns:IService1_GetIdExpert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetIdExpertResponse" message="tns:IService1_GetIdExpert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExperisePattern">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddExperisePattern" message="tns:IService1_AddExperisePattern_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddExperisePatternResponse" message="tns:IService1_AddExperisePattern_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExperisePospelov">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddExperisePospelov" message="tns:IService1_AddExperisePospelov_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddExperisePospelovResponse" message="tns:IService1_AddExperisePospelov_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExpert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddExpert" message="tns:IService1_AddExpert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddExpertResponse" message="tns:IService1_AddExpert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCriterion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddCriterion" message="tns:IService1_AddCriterion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddCriterionResponse" message="tns:IService1_AddCriterion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddProject" message="tns:IService1_AddProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddProjectResponse" message="tns:IService1_AddProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddMark" message="tns:IService1_AddMark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddMarkResponse" message="tns:IService1_AddMark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddResultExpert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddResultExpert" message="tns:IService1_AddResultExpert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddResultExpertResponse" message="tns:IService1_AddResultExpert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStatusExpertiseExpert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddStatusExpertiseExpert" message="tns:IService1_AddStatusExpertiseExpert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddStatusExpertiseExpertResponse" message="tns:IService1_AddStatusExpertiseExpert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStatusExpertise">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddStatusExpertise" message="tns:IService1_AddStatusExpertise_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddStatusExpertiseResponse" message="tns:IService1_AddStatusExpertise_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMarkPospelov">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddMarkPospelov" message="tns:IService1_AddMarkPospelov_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddMarkPospelovResponse" message="tns:IService1_AddMarkPospelov_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddResultMarkPospelov">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddResultMarkPospelov" message="tns:IService1_AddResultMarkPospelov_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddResultMarkPospelovResponse" message="tns:IService1_AddResultMarkPospelov_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCriterion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EditCriterion" message="tns:IService1_EditCriterion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EditCriterionResponse" message="tns:IService1_EditCriterion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditExpert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EditExpert" message="tns:IService1_EditExpert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EditExpertResponse" message="tns:IService1_EditExpert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EditProject" message="tns:IService1_EditProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EditProjectResponse" message="tns:IService1_EditProject_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListExperts">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetListExperts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCriterions">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetListCriterions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListProjects">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetListProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCurrentExpertises">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetListCurrentExpertises" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCompletedExpertises">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetListCompletedExpertises" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListExpertisesCriterions">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetListExpertisesCriterions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListExpertiseReport">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetListExpertiseReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListExpertiseReportPospelov">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetListExpertiseReportPospelov" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListExpertisePospelov">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetListExpertisePospelov" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdExpert">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetIdExpert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExperisePattern">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddExperisePattern" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExperisePospelov">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddExperisePospelov" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExpert">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddExpert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCriterion">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddCriterion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProject">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMark">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddResultExpert">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddResultExpert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStatusExpertiseExpert">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddStatusExpertiseExpert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStatusExpertise">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddStatusExpertise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMarkPospelov">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddMarkPospelov" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddResultMarkPospelov">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddResultMarkPospelov" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCriterion">
+      <soap:operation soapAction="http://tempuri.org/IService1/EditCriterion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditExpert">
+      <soap:operation soapAction="http://tempuri.org/IService1/EditExpert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditProject">
+      <soap:operation soapAction="http://tempuri.org/IService1/EditProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:50235/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,36 @@
+﻿<Window x:Class="test.Experts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test"
+        mc:Ignorable="d"
+        MinHeight="400" MinWidth="650"
+        Title="Эксперты" Height="385" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="290*"/>
+        </Grid.RowDefinitions>
+        <Viewbox x:Name="circle" Margin="612,0,0.6,0.8" Panel.ZIndex="1" Visibility="Hidden" >
+            <MediaElement x:Name="myGif" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual"     Source="3.gif" LoadedBehavior="Play" Stretch="None" Width="117"/>
+        </Viewbox>
+        <Button Content="Новый эксперт" Click="AddExpertClick" HorizontalAlignment="Left" Margin="10,10,0,9.6" Width="115"/>
+        <DataGrid Name="dgExperts" LoadingRow="DataGrid_LoadingRow" AutoGenerateColumns="False"  CanUserAddRows="False" IsReadOnly="True" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=second_name}" Header="Фамилия" Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=first_name}" Header="Имя" Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=patronymic}" Header="Отчество" Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=login}" Header="Логин" Width="*" />
+                <DataGridTemplateColumn Width="auto" Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Изменить"  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=ActualWidth}"  Click="bt_Expert_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,22 @@
+﻿<Window x:Class="test.ExpertiseWorkPospelov"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test"
+        mc:Ignorable="d"
+        Title="ExpertiseWorkPospelov" Height="450" Width="800">
+    <Grid x:Name="Mygrid">
+        <Viewbox x:Name="circle" Margin="0,0,0.6,0" Panel.ZIndex="1" Height="118" VerticalAlignment="Top" HorizontalAlignment="Right" Width="181" Visibility="Hidden" >
+            <MediaElement x:Name="myGif" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual"     Source="3.gif" LoadedBehavior="Play" Stretch="None" Width="117"/>
+        </Viewbox>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,69,-0.4,0">
+            <StackPanel Orientation="Vertical" x:Name="splMain" >
+
+
+                <!--<Button Name="btnAddMore" Click="btnAddMore_Click">Add Another</Button>-->
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

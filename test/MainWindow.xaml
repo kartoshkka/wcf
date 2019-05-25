@@ -1,0 +1,75 @@
+﻿<Window x:Class="test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test"
+        mc:Ignorable="d" 
+        MinHeight="480" MinWidth="851"
+        Title="Тестирование" Height="475.2" Width="850.4">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="310*"/>
+        </Grid.RowDefinitions>
+        <Viewbox x:Name="circle"  Panel.ZIndex="1" Visibility="Visible" Grid.Column="4" >
+            <MediaElement x:Name="myGif" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual"     Source="3.gif" LoadedBehavior="Play" Stretch="None" Width="117"/>
+        </Viewbox>
+        <Button x:Name="buton_criteries" Content="Критерии" Margin="10"  Click="ButtonAddCriterion_Click" Grid.Row="1"/>
+        <Border BorderBrush="Gainsboro" BorderThickness="3" Margin="0,13,-0.4,-0.4" Grid.Row="3" Grid.ColumnSpan="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="57*"/>
+                </Grid.RowDefinitions>
+
+                <Label HorizontalContentAlignment="Center" Content="Текущие экспертизы"  Grid.RowSpan="1" FontWeight="Bold" Margin="0,0,0.4,1.2"/>
+
+
+
+                <DataGrid Name="dgCurrentExpertises" LoadingRow="DataGrid_LoadingRow" AutoGenerateColumns="False"  CanUserAddRows="False" IsReadOnly="False"  Grid.Row="1" Margin="0,0.8,0.4,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=name}" Header="Наименование экспертизы" Width="*" />
+                        <DataGridTemplateColumn Width="*" Header="">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <Button Content="Начать"  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=ActualWidth}"  Click="bt_Expertise_Click"/>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+
+        <Button  Name="ButtonAddExperise" Content="Добавить экспертизу"  Margin="10"  Click="ButtonAddExperise_Click"  Grid.Row="1" Grid.Column="3" />
+        <Button x:Name="buton_experts" Content="Эксперты" Click="Expert_click" Margin="10" Grid.Row="1" Grid.Column="1"/>
+        <Button x:Name="buton_project" Content="Проекты" Click="project_click"  Margin="10"  Grid.Row="1" Grid.Column="2"/>
+
+        <Button Content="Завершенные экспертизы"  Margin="10"  Click="Button_Click"  Grid.Row="1" Grid.Column="4"/>
+        <Border  BorderBrush="Gainsboro" BorderThickness="3"  Grid.ColumnSpan="4" Margin="10">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3.4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="label_fio" Content="Label"  />
+                <Button Content="Выйти" Click="bt_exit_click" Grid.Column="1" Margin="0.4,0,-0.4,-0.4" />
+            </Grid>
+
+        </Border>
+
+
+    </Grid>
+</Window>

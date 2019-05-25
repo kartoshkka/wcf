@@ -1,0 +1,44 @@
+﻿<Window x:Class="test.AddExpert"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test"
+        mc:Ignorable="d"
+        MinHeight="400" MinWidth="700" MaxHeight="600" MaxWidth="800"
+        Title="Работа с экспертом" Height="449.39" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="26*"/>
+        </Grid.ColumnDefinitions>
+        <Viewbox x:Name="circle" Margin="208,0,0.6,0" Panel.ZIndex="1" Visibility="Visible" Grid.Column="1" >
+            <MediaElement x:Name="myGif" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual"     Source="3.gif" LoadedBehavior="Play" Stretch="None" Width="117"/>
+        </Viewbox>
+        <Label Content="Введите фамилию эксперта"  Grid.Row="1"/>
+        <Label Content="Введите имя эксперта"  Grid.Row="2" Grid.RowSpan="2"/>
+        <Label Content="Введите отчетсво эксперта"  Grid.Row="3"/>
+        <Label Content="Введите логин эксперта" Grid.Row="4"/>
+        <Label Content="Введите пароль эксперта"  Grid.Row="5"/>
+
+
+        <TextBox Name="TextBoxLastName"  TextWrapping="Wrap" Text="Петров" Grid.Column="1" Grid.Row="1"/>
+        <TextBox Name="TextBoxFirstName" TextWrapping="Wrap" Text="Петр" Grid.Column="1" Grid.Row="2"/>
+        <TextBox Name="TextBoxPatronimic" TextWrapping="Wrap" Text="Петрович" Grid.Column="1" Grid.Row="3"/>
+        <TextBox Name="TextBoxLogin"  TextWrapping="Wrap" Text="petr" Grid.Column="1" Grid.Row="4"/>
+        <PasswordBox x:Name="TextboxPassword" Grid.Column="1"  Grid.Row="5"/>
+        <Button Name="SaveExpert" Grid.ColumnSpan="2" Content="Сохранить" Margin="243,9,240.6,10" Click="SaveExpert_Click" Grid.Row="7"/>
+        <CheckBox x:Name="CheckBoxAccses" Content="Председатель экспертиз" Margin="10,4.8,162,15" Grid.Row="6"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="16d87485c3734670bcf1f34b39989f47" Name="Diagram1" ZoomLevel="84">
+        <EntityTypeShape EntityType="db_expertiseModel.criterions" Width="1.5" PointX="3.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_expertiseModel.expertises" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_expertiseModel.expertises_criterions" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_expertiseModel.experts" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_expertiseModel.experts_expertises" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_expertiseModel.marks" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_expertiseModel.projects" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_expertiseModel.projects_expertises" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_expertiseModel.results_experts" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
+        <AssociationConnector Association="db_expertiseModel.FK_expertises_criterions_criterions" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_marks_criterions" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_expertises_criterions_expertises" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_experts_expertises_expertises" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_marks_expertises" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_projects_expertises_expertises" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_results_experts_expertises" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_experts_expertises_experts" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_marks_experts" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_results_experts_experts" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_marks_projects" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_projects_expertises_projects" ManuallyRouted="false" />
+        <AssociationConnector Association="db_expertiseModel.FK_results_experts_projects" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db_expertiseModel.results_expertise" Width="2" PointX="11" PointY="6.125" />
+        <EntityTypeShape EntityType="db_expertiseModel.results_expertises_criterions" Width="2" PointX="9.25" PointY="2.875" />
+        <EntityTypeShape EntityType="db_expertiseModel.Status" Width="2" PointX="9.375" PointY="9.75" />
+        <AssociationConnector Association="db_expertiseModel.FK_results_expertises_criterions1" />
+        <AssociationConnector Association="db_expertiseModel.FK_expertises_Status" />
+        <AssociationConnector Association="db_expertiseModel.FK_result_expertise_expertises" />
+        <AssociationConnector Association="db_expertiseModel.FK_results_expertises_expertises1" />
+        <AssociationConnector Association="db_expertiseModel.FK_experts_expertises_Status" />
+        <AssociationConnector Association="db_expertiseModel.FK_result_expertise_projects" />
+        <AssociationConnector Association="db_expertiseModel.FK_results_expertises_projects1" />
+        <EntityTypeShape EntityType="db_expertiseModel.factors" Width="1.5" PointX="3" PointY="17.875" />
+        <EntityTypeShape EntityType="db_expertiseModel.marks_factors" Width="1.5" PointX="8.25" PointY="13" />
+        <EntityTypeShape EntityType="db_expertiseModel.marks_ribs" Width="1.5" PointX="8.5" PointY="16.625" />
+        <EntityTypeShape EntityType="db_expertiseModel.ribs" Width="1.5" PointX="5.25" PointY="21.375" />
+        <AssociationConnector Association="db_expertiseModel.FK_factors_expertises" />
+        <AssociationConnector Association="db_expertiseModel.FK_marks_factors_expertises" />
+        <AssociationConnector Association="db_expertiseModel.FK_marks_ribs_expertises" />
+        <AssociationConnector Association="db_expertiseModel.FK_marks_factors_experts" />
+        <AssociationConnector Association="db_expertiseModel.FK_marks_ribs_experts" />
+        <AssociationConnector Association="db_expertiseModel.FK_marks_factors_factors" />
+        <AssociationConnector Association="db_expertiseModel.FK_ribs_factors" />
+        <AssociationConnector Association="db_expertiseModel.FK_ribs_factors1" />
+        <AssociationConnector Association="db_expertiseModel.FK_marks_ribs_ribs" />
+        <EntityTypeShape EntityType="db_expertiseModel.results_factors" Width="1.5" PointX="5.25" PointY="18.375" />
+        <EntityTypeShape EntityType="db_expertiseModel.results_ribs" Width="1.5" PointX="10.5" PointY="12.875" />
+        <AssociationConnector Association="db_expertiseModel.FK_results_factors_expertises" />
+        <AssociationConnector Association="db_expertiseModel.FK_results_ribs_expertises" />
+        <AssociationConnector Association="db_expertiseModel.FK_results_factors_factors" />
+        <AssociationConnector Association="db_expertiseModel.FK_results_ribs_ribs" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище db_expertiseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="criterions">
+          <Key>
+            <PropertyRef Name="id_criterion" />
+          </Key>
+          <Property Name="id_criterion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="expertises">
+          <Key>
+            <PropertyRef Name="id_expertise" />
+          </Key>
+          <Property Name="id_expertise" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_status" Type="int" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="expertises_criterions">
+          <Key>
+            <PropertyRef Name="id_expertises_criterions" />
+          </Key>
+          <Property Name="id_expertises_criterions" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="id_criterion" Type="int" Nullable="false" />
+          <Property Name="weight" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="experts">
+          <Key>
+            <PropertyRef Name="id_expert" />
+          </Key>
+          <Property Name="id_expert" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="second_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="first_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="access" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="experts_expertises">
+          <Key>
+            <PropertyRef Name="id_expertises_experts" />
+          </Key>
+          <Property Name="id_expertises_experts" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="id_expert" Type="int" Nullable="false" />
+          <Property Name="role" Type="bit" Nullable="false" />
+          <Property Name="id_status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="factors">
+          <Key>
+            <PropertyRef Name="id_factor" />
+          </Key>
+          <Property Name="id_factor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="marks">
+          <Key>
+            <PropertyRef Name="id_mark" />
+          </Key>
+          <Property Name="id_mark" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="id_expert" Type="int" Nullable="false" />
+          <Property Name="id_project" Type="int" Nullable="false" />
+          <Property Name="id_criterion" Type="int" Nullable="false" />
+          <Property Name="value" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="marks_factors">
+          <Key>
+            <PropertyRef Name="id_mark" />
+          </Key>
+          <Property Name="id_mark" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expert" Type="int" Nullable="false" />
+          <Property Name="id_factor" Type="int" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="value" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="marks_ribs">
+          <Key>
+            <PropertyRef Name="id_mark_rib" />
+          </Key>
+          <Property Name="id_mark_rib" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="id_rib" Type="int" Nullable="false" />
+          <Property Name="id_expert" Type="int" Nullable="false" />
+          <Property Name="value" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="projects">
+          <Key>
+            <PropertyRef Name="id_project" />
+          </Key>
+          <Property Name="id_project" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="projects_expertises">
+          <Key>
+            <PropertyRef Name="id_project_expertise" />
+          </Key>
+          <Property Name="id_project_expertise" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="id_project" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="results_expertise">
+          <Key>
+            <PropertyRef Name="id_result" />
+          </Key>
+          <Property Name="id_result" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="id_project" Type="int" Nullable="false" />
+          <Property Name="value" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="results_expertises_criterions">
+          <Key>
+            <PropertyRef Name="id_result" />
+          </Key>
+          <Property Name="id_result" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="id_project" Type="int" Nullable="false" />
+          <Property Name="id_criterion" Type="int" Nullable="false" />
+          <Property Name="value" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="results_experts">
+          <Key>
+            <PropertyRef Name="id_result_expert" />
+          </Key>
+          <Property Name="id_result_expert" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="id_project" Type="int" Nullable="false" />
+          <Property Name="id_expert" Type="int" Nullable="false" />
+          <Property Name="value" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="results_factors">
+          <Key>
+            <PropertyRef Name="id_mark_result_factor" />
+          </Key>
+          <Property Name="id_mark_result_factor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="id_factor" Type="int" Nullable="false" />
+          <Property Name="value" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="results_ribs">
+          <Key>
+            <PropertyRef Name="id_result_mark_rib" />
+          </Key>
+          <Property Name="id_result_mark_rib" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_expertise" Type="int" Nullable="false" />
+          <Property Name="id_rib" Type="int" Nullable="false" />
+          <Property Name="value" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ribs">
+          <Key>
+            <PropertyRef Name="id_rib" />
+          </Key>
+          <Property Name="id_rib" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_factor_from" Type="int" Nullable="false" />
+          <Property Name="id_factor_in" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_expertises_criterions_criterions">
+          <End Role="criterions" Type="Self.criterions" Multiplicity="1" />
+          <End Role="expertises_criterions" Type="Self.expertises_criterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="criterions">
+              <PropertyRef Name="id_criterion" />
+            </Principal>
+            <Dependent Role="expertises_criterions">
+              <PropertyRef Name="id_criterion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_expertises_criterions_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="expertises_criterions" Type="Self.expertises_criterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="expertises_criterions">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_expertises_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="expertises" Type="Self.expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="expertises">
+              <PropertyRef Name="id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_experts_expertises_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="experts_expertises" Type="Self.experts_expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="experts_expertises">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_experts_expertises_experts">
+          <End Role="experts" Type="Self.experts" Multiplicity="1" />
+          <End Role="experts_expertises" Type="Self.experts_expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="experts">
+              <PropertyRef Name="id_expert" />
+            </Principal>
+            <Dependent Role="experts_expertises">
+              <PropertyRef Name="id_expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_experts_expertises_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="experts_expertises" Type="Self.experts_expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="experts_expertises">
+              <PropertyRef Name="id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factors_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="factors" Type="Self.factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="factors">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_criterions">
+          <End Role="criterions" Type="Self.criterions" Multiplicity="1" />
+          <End Role="marks" Type="Self.marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="criterions">
+              <PropertyRef Name="id_criterion" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="id_criterion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="marks" Type="Self.marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_experts">
+          <End Role="experts" Type="Self.experts" Multiplicity="1" />
+          <End Role="marks" Type="Self.marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="experts">
+              <PropertyRef Name="id_expert" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="id_expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_factors_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="marks_factors" Type="Self.marks_factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="marks_factors">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_factors_experts">
+          <End Role="experts" Type="Self.experts" Multiplicity="1" />
+          <End Role="marks_factors" Type="Self.marks_factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="experts">
+              <PropertyRef Name="id_expert" />
+            </Principal>
+            <Dependent Role="marks_factors">
+              <PropertyRef Name="id_expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_factors_factors">
+          <End Role="factors" Type="Self.factors" Multiplicity="1" />
+          <End Role="marks_factors" Type="Self.marks_factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factors">
+              <PropertyRef Name="id_factor" />
+            </Principal>
+            <Dependent Role="marks_factors">
+              <PropertyRef Name="id_factor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_projects">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="marks" Type="Self.marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="id_project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_ribs_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="marks_ribs" Type="Self.marks_ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="marks_ribs">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_ribs_experts">
+          <End Role="experts" Type="Self.experts" Multiplicity="1" />
+          <End Role="marks_ribs" Type="Self.marks_ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="experts">
+              <PropertyRef Name="id_expert" />
+            </Principal>
+            <Dependent Role="marks_ribs">
+              <PropertyRef Name="id_expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_ribs_ribs">
+          <End Role="ribs" Type="Self.ribs" Multiplicity="1" />
+          <End Role="marks_ribs" Type="Self.marks_ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ribs">
+              <PropertyRef Name="id_rib" />
+            </Principal>
+            <Dependent Role="marks_ribs">
+              <PropertyRef Name="id_rib" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_projects_expertises_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="projects_expertises" Type="Self.projects_expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="projects_expertises">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_projects_expertises_projects">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="projects_expertises" Type="Self.projects_expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="projects_expertises">
+              <PropertyRef Name="id_project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_result_expertise_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="results_expertise" Type="Self.results_expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="results_expertise">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_result_expertise_projects">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="results_expertise" Type="Self.results_expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="results_expertise">
+              <PropertyRef Name="id_project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_expertises_criterions">
+          <End Role="criterions" Type="Self.criterions" Multiplicity="1" />
+          <End Role="results_expertises_criterions" Type="Self.results_expertises_criterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="criterions">
+              <PropertyRef Name="id_criterion" />
+            </Principal>
+            <Dependent Role="results_expertises_criterions">
+              <PropertyRef Name="id_criterion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_expertises_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="results_expertises_criterions" Type="Self.results_expertises_criterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="results_expertises_criterions">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_expertises_projects">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="results_expertises_criterions" Type="Self.results_expertises_criterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="results_expertises_criterions">
+              <PropertyRef Name="id_project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_experts_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="results_experts" Type="Self.results_experts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="results_experts">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_experts_experts">
+          <End Role="experts" Type="Self.experts" Multiplicity="1" />
+          <End Role="results_experts" Type="Self.results_experts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="experts">
+              <PropertyRef Name="id_expert" />
+            </Principal>
+            <Dependent Role="results_experts">
+              <PropertyRef Name="id_expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_experts_projects">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="results_experts" Type="Self.results_experts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="results_experts">
+              <PropertyRef Name="id_project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_factors_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="results_factors" Type="Self.results_factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="results_factors">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_factors_factors">
+          <End Role="factors" Type="Self.factors" Multiplicity="1" />
+          <End Role="results_factors" Type="Self.results_factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factors">
+              <PropertyRef Name="id_factor" />
+            </Principal>
+            <Dependent Role="results_factors">
+              <PropertyRef Name="id_factor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_ribs_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="results_ribs" Type="Self.results_ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="results_ribs">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_ribs_ribs">
+          <End Role="ribs" Type="Self.ribs" Multiplicity="1" />
+          <End Role="results_ribs" Type="Self.results_ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ribs">
+              <PropertyRef Name="id_rib" />
+            </Principal>
+            <Dependent Role="results_ribs">
+              <PropertyRef Name="id_rib" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ribs_factors">
+          <End Role="factors" Type="Self.factors" Multiplicity="1" />
+          <End Role="ribs" Type="Self.ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factors">
+              <PropertyRef Name="id_factor" />
+            </Principal>
+            <Dependent Role="ribs">
+              <PropertyRef Name="id_factor_from" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ribs_factors1">
+          <End Role="factors" Type="Self.factors" Multiplicity="1" />
+          <End Role="ribs" Type="Self.ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factors">
+              <PropertyRef Name="id_factor" />
+            </Principal>
+            <Dependent Role="ribs">
+              <PropertyRef Name="id_factor_in" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище db_expertiseModelContainer">
+          <EntitySet Name="criterions" EntityType="Self.criterions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="expertises" EntityType="Self.expertises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="expertises_criterions" EntityType="Self.expertises_criterions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="experts" EntityType="Self.experts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="experts_expertises" EntityType="Self.experts_expertises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="factors" EntityType="Self.factors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marks" EntityType="Self.marks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marks_factors" EntityType="Self.marks_factors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marks_ribs" EntityType="Self.marks_ribs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="projects" EntityType="Self.projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="projects_expertises" EntityType="Self.projects_expertises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="results_expertise" EntityType="Self.results_expertise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="results_expertises_criterions" EntityType="Self.results_expertises_criterions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="results_experts" EntityType="Self.results_experts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="results_factors" EntityType="Self.results_factors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="results_ribs" EntityType="Self.results_ribs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ribs" EntityType="Self.ribs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_expertises_criterions_criterions" Association="Self.FK_expertises_criterions_criterions">
+            <End Role="criterions" EntitySet="criterions" />
+            <End Role="expertises_criterions" EntitySet="expertises_criterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_expertises_criterions_expertises" Association="Self.FK_expertises_criterions_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="expertises_criterions" EntitySet="expertises_criterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_expertises_Status" Association="Self.FK_expertises_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="expertises" EntitySet="expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_experts_expertises_expertises" Association="Self.FK_experts_expertises_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="experts_expertises" EntitySet="experts_expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_experts_expertises_experts" Association="Self.FK_experts_expertises_experts">
+            <End Role="experts" EntitySet="experts" />
+            <End Role="experts_expertises" EntitySet="experts_expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_experts_expertises_Status" Association="Self.FK_experts_expertises_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="experts_expertises" EntitySet="experts_expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factors_expertises" Association="Self.FK_factors_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="factors" EntitySet="factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_criterions" Association="Self.FK_marks_criterions">
+            <End Role="criterions" EntitySet="criterions" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_expertises" Association="Self.FK_marks_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_experts" Association="Self.FK_marks_experts">
+            <End Role="experts" EntitySet="experts" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_factors_expertises" Association="Self.FK_marks_factors_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="marks_factors" EntitySet="marks_factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_factors_experts" Association="Self.FK_marks_factors_experts">
+            <End Role="experts" EntitySet="experts" />
+            <End Role="marks_factors" EntitySet="marks_factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_factors_factors" Association="Self.FK_marks_factors_factors">
+            <End Role="factors" EntitySet="factors" />
+            <End Role="marks_factors" EntitySet="marks_factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_projects" Association="Self.FK_marks_projects">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_ribs_expertises" Association="Self.FK_marks_ribs_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="marks_ribs" EntitySet="marks_ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_ribs_experts" Association="Self.FK_marks_ribs_experts">
+            <End Role="experts" EntitySet="experts" />
+            <End Role="marks_ribs" EntitySet="marks_ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_ribs_ribs" Association="Self.FK_marks_ribs_ribs">
+            <End Role="ribs" EntitySet="ribs" />
+            <End Role="marks_ribs" EntitySet="marks_ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_projects_expertises_expertises" Association="Self.FK_projects_expertises_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="projects_expertises" EntitySet="projects_expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_projects_expertises_projects" Association="Self.FK_projects_expertises_projects">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="projects_expertises" EntitySet="projects_expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_result_expertise_expertises" Association="Self.FK_result_expertise_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="results_expertise" EntitySet="results_expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_result_expertise_projects" Association="Self.FK_result_expertise_projects">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="results_expertise" EntitySet="results_expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_expertises_criterions" Association="Self.FK_results_expertises_criterions">
+            <End Role="criterions" EntitySet="criterions" />
+            <End Role="results_expertises_criterions" EntitySet="results_expertises_criterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_expertises_expertises" Association="Self.FK_results_expertises_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="results_expertises_criterions" EntitySet="results_expertises_criterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_expertises_projects" Association="Self.FK_results_expertises_projects">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="results_expertises_criterions" EntitySet="results_expertises_criterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_experts_expertises" Association="Self.FK_results_experts_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="results_experts" EntitySet="results_experts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_experts_experts" Association="Self.FK_results_experts_experts">
+            <End Role="experts" EntitySet="experts" />
+            <End Role="results_experts" EntitySet="results_experts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_experts_projects" Association="Self.FK_results_experts_projects">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="results_experts" EntitySet="results_experts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_factors_expertises" Association="Self.FK_results_factors_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="results_factors" EntitySet="results_factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_factors_factors" Association="Self.FK_results_factors_factors">
+            <End Role="factors" EntitySet="factors" />
+            <End Role="results_factors" EntitySet="results_factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_ribs_expertises" Association="Self.FK_results_ribs_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="results_ribs" EntitySet="results_ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_ribs_ribs" Association="Self.FK_results_ribs_ribs">
+            <End Role="ribs" EntitySet="ribs" />
+            <End Role="results_ribs" EntitySet="results_ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ribs_factors" Association="Self.FK_ribs_factors">
+            <End Role="factors" EntitySet="factors" />
+            <End Role="ribs" EntitySet="ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ribs_factors1" Association="Self.FK_ribs_factors1">
+            <End Role="factors" EntitySet="factors" />
+            <End Role="ribs" EntitySet="ribs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_expertiseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="criterions">
+          <Key>
+            <PropertyRef Name="id_criterion" />
+          </Key>
+          <Property Name="id_criterion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="expertises_criterions" Relationship="Self.FK_expertises_criterions_criterions" FromRole="criterions" ToRole="expertises_criterions" />
+          <NavigationProperty Name="marks" Relationship="Self.FK_marks_criterions" FromRole="criterions" ToRole="marks" />
+          <NavigationProperty Name="results_expertises_criterions" Relationship="db_expertiseModel.FK_results_expertises_criterions1" FromRole="criterions" ToRole="results_expertises_criterions" />
+        </EntityType>
+        <EntityType Name="expertises">
+          <Key>
+            <PropertyRef Name="id_expertise" />
+          </Key>
+          <Property Name="id_expertise" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="expertises_criterions" Relationship="Self.FK_expertises_criterions_expertises" FromRole="expertises" ToRole="expertises_criterions" />
+          <NavigationProperty Name="experts_expertises" Relationship="Self.FK_experts_expertises_expertises" FromRole="expertises" ToRole="experts_expertises" />
+          <NavigationProperty Name="marks" Relationship="Self.FK_marks_expertises" FromRole="expertises" ToRole="marks" />
+          <NavigationProperty Name="projects_expertises" Relationship="Self.FK_projects_expertises_expertises" FromRole="expertises" ToRole="projects_expertises" />
+          <NavigationProperty Name="results_experts" Relationship="Self.FK_results_experts_expertises" FromRole="expertises" ToRole="results_experts" />
+          <Property Name="id_status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Status" Relationship="db_expertiseModel.FK_expertises_Status" FromRole="expertises" ToRole="Status" />
+          <NavigationProperty Name="results_expertise" Relationship="db_expertiseModel.FK_result_expertise_expertises" FromRole="expertises" ToRole="results_expertise" />
+          <NavigationProperty Name="results_expertises_criterions" Relationship="db_expertiseModel.FK_results_expertises_expertises1" FromRole="expertises" ToRole="results_expertises_criterions" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="factors" Relationship="db_expertiseModel.FK_factors_expertises" FromRole="expertises" ToRole="factors" />
+          <NavigationProperty Name="marks_factors" Relationship="db_expertiseModel.FK_marks_factors_expertises" FromRole="expertises" ToRole="marks_factors" />
+          <NavigationProperty Name="marks_ribs" Relationship="db_expertiseModel.FK_marks_ribs_expertises" FromRole="expertises" ToRole="marks_ribs" />
+          <NavigationProperty Name="results_factors" Relationship="db_expertiseModel.FK_results_factors_expertises" FromRole="expertises" ToRole="results_factors" />
+          <NavigationProperty Name="results_ribs" Relationship="db_expertiseModel.FK_results_ribs_expertises" FromRole="expertises" ToRole="results_ribs" />
+        </EntityType>
+        <EntityType Name="expertises_criterions">
+          <Key>
+            <PropertyRef Name="id_expertises_criterions" />
+          </Key>
+          <Property Name="id_expertises_criterions" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="id_criterion" Type="Int32" Nullable="false" />
+          <Property Name="weight" Type="Double" Nullable="false" />
+          <NavigationProperty Name="criterions" Relationship="Self.FK_expertises_criterions_criterions" FromRole="expertises_criterions" ToRole="criterions" />
+          <NavigationProperty Name="expertises" Relationship="Self.FK_expertises_criterions_expertises" FromRole="expertises_criterions" ToRole="expertises" />
+        </EntityType>
+        <EntityType Name="experts">
+          <Key>
+            <PropertyRef Name="id_expert" />
+          </Key>
+          <Property Name="id_expert" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="second_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="experts_expertises" Relationship="Self.FK_experts_expertises_experts" FromRole="experts" ToRole="experts_expertises" />
+          <NavigationProperty Name="marks" Relationship="Self.FK_marks_experts" FromRole="experts" ToRole="marks" />
+          <NavigationProperty Name="results_experts" Relationship="Self.FK_results_experts_experts" FromRole="experts" ToRole="results_experts" />
+          <NavigationProperty Name="marks_factors" Relationship="db_expertiseModel.FK_marks_factors_experts" FromRole="experts" ToRole="marks_factors" />
+          <NavigationProperty Name="marks_ribs" Relationship="db_expertiseModel.FK_marks_ribs_experts" FromRole="experts" ToRole="marks_ribs" />
+          <Property Name="access" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="experts_expertises">
+          <Key>
+            <PropertyRef Name="id_expertises_experts" />
+          </Key>
+          <Property Name="id_expertises_experts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="id_expert" Type="Int32" Nullable="false" />
+          <Property Name="role" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="expertises" Relationship="Self.FK_experts_expertises_expertises" FromRole="experts_expertises" ToRole="expertises" />
+          <NavigationProperty Name="experts" Relationship="Self.FK_experts_expertises_experts" FromRole="experts_expertises" ToRole="experts" />
+          <Property Name="id_status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Status" Relationship="db_expertiseModel.FK_experts_expertises_Status" FromRole="experts_expertises" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="marks">
+          <Key>
+            <PropertyRef Name="id_mark" />
+          </Key>
+          <Property Name="id_mark" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="id_expert" Type="Int32" Nullable="false" />
+          <Property Name="id_project" Type="Int32" Nullable="false" />
+          <Property Name="id_criterion" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Double" Nullable="false" />
+          <NavigationProperty Name="criterions" Relationship="Self.FK_marks_criterions" FromRole="marks" ToRole="criterions" />
+          <NavigationProperty Name="expertises" Relationship="Self.FK_marks_expertises" FromRole="marks" ToRole="expertises" />
+          <NavigationProperty Name="experts" Relationship="Self.FK_marks_experts" FromRole="marks" ToRole="experts" />
+          <NavigationProperty Name="projects" Relationship="Self.FK_marks_projects" FromRole="marks" ToRole="projects" />
+        </EntityType>
+        <EntityType Name="projects">
+          <Key>
+            <PropertyRef Name="id_project" />
+          </Key>
+          <Property Name="id_project" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="marks" Relationship="Self.FK_marks_projects" FromRole="projects" ToRole="marks" />
+          <NavigationProperty Name="projects_expertises" Relationship="Self.FK_projects_expertises_projects" FromRole="projects" ToRole="projects_expertises" />
+          <NavigationProperty Name="results_experts" Relationship="Self.FK_results_experts_projects" FromRole="projects" ToRole="results_experts" />
+          <NavigationProperty Name="results_expertise" Relationship="db_expertiseModel.FK_result_expertise_projects" FromRole="projects" ToRole="results_expertise" />
+          <NavigationProperty Name="results_expertises_criterions" Relationship="db_expertiseModel.FK_results_expertises_projects1" FromRole="projects" ToRole="results_expertises_criterions" />
+        </EntityType>
+        <EntityType Name="projects_expertises">
+          <Key>
+            <PropertyRef Name="id_project_expertise" />
+          </Key>
+          <Property Name="id_project_expertise" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="id_project" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="expertises" Relationship="Self.FK_projects_expertises_expertises" FromRole="projects_expertises" ToRole="expertises" />
+          <NavigationProperty Name="projects" Relationship="Self.FK_projects_expertises_projects" FromRole="projects_expertises" ToRole="projects" />
+        </EntityType>
+        <EntityType Name="results_experts">
+          <Key>
+            <PropertyRef Name="id_result_expert" />
+          </Key>
+          <Property Name="id_result_expert" Type="Int32" Nullable="false" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="id_project" Type="Int32" Nullable="false" />
+          <Property Name="id_expert" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Double" Nullable="false" />
+          <NavigationProperty Name="expertises" Relationship="Self.FK_results_experts_expertises" FromRole="results_experts" ToRole="expertises" />
+          <NavigationProperty Name="experts" Relationship="Self.FK_results_experts_experts" FromRole="results_experts" ToRole="experts" />
+          <NavigationProperty Name="projects" Relationship="Self.FK_results_experts_projects" FromRole="results_experts" ToRole="projects" />
+        </EntityType>
+        <Association Name="FK_expertises_criterions_criterions">
+          <End Role="criterions" Type="Self.criterions" Multiplicity="1" />
+          <End Role="expertises_criterions" Type="Self.expertises_criterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="criterions">
+              <PropertyRef Name="id_criterion" />
+            </Principal>
+            <Dependent Role="expertises_criterions">
+              <PropertyRef Name="id_criterion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_criterions">
+          <End Role="criterions" Type="Self.criterions" Multiplicity="1" />
+          <End Role="marks" Type="Self.marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="criterions">
+              <PropertyRef Name="id_criterion" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="id_criterion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_expertises_criterions_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="expertises_criterions" Type="Self.expertises_criterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="expertises_criterions">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_experts_expertises_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="experts_expertises" Type="Self.experts_expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="experts_expertises">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="marks" Type="Self.marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_projects_expertises_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="projects_expertises" Type="Self.projects_expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="projects_expertises">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_experts_expertises">
+          <End Role="expertises" Type="Self.expertises" Multiplicity="1" />
+          <End Role="results_experts" Type="Self.results_experts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="results_experts">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_experts_expertises_experts">
+          <End Role="experts" Type="Self.experts" Multiplicity="1" />
+          <End Role="experts_expertises" Type="Self.experts_expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="experts">
+              <PropertyRef Name="id_expert" />
+            </Principal>
+            <Dependent Role="experts_expertises">
+              <PropertyRef Name="id_expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_experts">
+          <End Role="experts" Type="Self.experts" Multiplicity="1" />
+          <End Role="marks" Type="Self.marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="experts">
+              <PropertyRef Name="id_expert" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="id_expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_experts_experts">
+          <End Role="experts" Type="Self.experts" Multiplicity="1" />
+          <End Role="results_experts" Type="Self.results_experts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="experts">
+              <PropertyRef Name="id_expert" />
+            </Principal>
+            <Dependent Role="results_experts">
+              <PropertyRef Name="id_expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_projects">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="marks" Type="Self.marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="id_project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_projects_expertises_projects">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="projects_expertises" Type="Self.projects_expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="projects_expertises">
+              <PropertyRef Name="id_project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_experts_projects">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="results_experts" Type="Self.results_experts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="results_experts">
+              <PropertyRef Name="id_project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_expertiseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="criterions" EntityType="Self.criterions" />
+          <EntitySet Name="expertises" EntityType="Self.expertises" />
+          <EntitySet Name="expertises_criterions" EntityType="Self.expertises_criterions" />
+          <EntitySet Name="experts" EntityType="Self.experts" />
+          <EntitySet Name="experts_expertises" EntityType="Self.experts_expertises" />
+          <EntitySet Name="marks" EntityType="Self.marks" />
+          <EntitySet Name="projects" EntityType="Self.projects" />
+          <EntitySet Name="projects_expertises" EntityType="Self.projects_expertises" />
+          <EntitySet Name="results_experts" EntityType="Self.results_experts" />
+          <AssociationSet Name="FK_expertises_criterions_criterions" Association="Self.FK_expertises_criterions_criterions">
+            <End Role="criterions" EntitySet="criterions" />
+            <End Role="expertises_criterions" EntitySet="expertises_criterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_criterions" Association="Self.FK_marks_criterions">
+            <End Role="criterions" EntitySet="criterions" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_expertises_criterions_expertises" Association="Self.FK_expertises_criterions_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="expertises_criterions" EntitySet="expertises_criterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_experts_expertises_expertises" Association="Self.FK_experts_expertises_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="experts_expertises" EntitySet="experts_expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_expertises" Association="Self.FK_marks_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_projects_expertises_expertises" Association="Self.FK_projects_expertises_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="projects_expertises" EntitySet="projects_expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_experts_expertises" Association="Self.FK_results_experts_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="results_experts" EntitySet="results_experts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_experts_expertises_experts" Association="Self.FK_experts_expertises_experts">
+            <End Role="experts" EntitySet="experts" />
+            <End Role="experts_expertises" EntitySet="experts_expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_experts" Association="Self.FK_marks_experts">
+            <End Role="experts" EntitySet="experts" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_experts_experts" Association="Self.FK_results_experts_experts">
+            <End Role="experts" EntitySet="experts" />
+            <End Role="results_experts" EntitySet="results_experts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_projects" Association="Self.FK_marks_projects">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_projects_expertises_projects" Association="Self.FK_projects_expertises_projects">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="projects_expertises" EntitySet="projects_expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_experts_projects" Association="Self.FK_results_experts_projects">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="results_experts" EntitySet="results_experts" />
+          </AssociationSet>
+          <EntitySet Name="results_expertise" EntityType="db_expertiseModel.results_expertise" />
+          <EntitySet Name="results_expertises_criterions" EntityType="db_expertiseModel.results_expertises_criterions" />
+          <EntitySet Name="Status" EntityType="db_expertiseModel.Status" />
+          <AssociationSet Name="FK_results_expertises_criterions1" Association="db_expertiseModel.FK_results_expertises_criterions1">
+            <End Role="criterions" EntitySet="criterions" />
+            <End Role="results_expertises_criterions" EntitySet="results_expertises_criterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_expertises_Status" Association="db_expertiseModel.FK_expertises_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="expertises" EntitySet="expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_result_expertise_expertises" Association="db_expertiseModel.FK_result_expertise_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="results_expertise" EntitySet="results_expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_expertises_expertises1" Association="db_expertiseModel.FK_results_expertises_expertises1">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="results_expertises_criterions" EntitySet="results_expertises_criterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_experts_expertises_Status" Association="db_expertiseModel.FK_experts_expertises_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="experts_expertises" EntitySet="experts_expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_result_expertise_projects" Association="db_expertiseModel.FK_result_expertise_projects">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="results_expertise" EntitySet="results_expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_expertises_projects1" Association="db_expertiseModel.FK_results_expertises_projects1">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="results_expertises_criterions" EntitySet="results_expertises_criterions" />
+          </AssociationSet>
+          <EntitySet Name="factors" EntityType="db_expertiseModel.factors" />
+          <EntitySet Name="marks_factors" EntityType="db_expertiseModel.marks_factors" />
+          <EntitySet Name="marks_ribs" EntityType="db_expertiseModel.marks_ribs" />
+          <EntitySet Name="ribs" EntityType="db_expertiseModel.ribs" />
+          <AssociationSet Name="FK_factors_expertises" Association="db_expertiseModel.FK_factors_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="factors" EntitySet="factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_factors_expertises" Association="db_expertiseModel.FK_marks_factors_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="marks_factors" EntitySet="marks_factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_ribs_expertises" Association="db_expertiseModel.FK_marks_ribs_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="marks_ribs" EntitySet="marks_ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_factors_experts" Association="db_expertiseModel.FK_marks_factors_experts">
+            <End Role="experts" EntitySet="experts" />
+            <End Role="marks_factors" EntitySet="marks_factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_ribs_experts" Association="db_expertiseModel.FK_marks_ribs_experts">
+            <End Role="experts" EntitySet="experts" />
+            <End Role="marks_ribs" EntitySet="marks_ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_factors_factors" Association="db_expertiseModel.FK_marks_factors_factors">
+            <End Role="factors" EntitySet="factors" />
+            <End Role="marks_factors" EntitySet="marks_factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ribs_factors" Association="db_expertiseModel.FK_ribs_factors">
+            <End Role="factors" EntitySet="factors" />
+            <End Role="ribs" EntitySet="ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ribs_factors1" Association="db_expertiseModel.FK_ribs_factors1">
+            <End Role="factors" EntitySet="factors" />
+            <End Role="ribs" EntitySet="ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marks_ribs_ribs" Association="db_expertiseModel.FK_marks_ribs_ribs">
+            <End Role="ribs" EntitySet="ribs" />
+            <End Role="marks_ribs" EntitySet="marks_ribs" />
+          </AssociationSet>
+          <EntitySet Name="results_factors" EntityType="db_expertiseModel.results_factors" />
+          <EntitySet Name="results_ribs" EntityType="db_expertiseModel.results_ribs" />
+          <AssociationSet Name="FK_results_factors_expertises" Association="db_expertiseModel.FK_results_factors_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="results_factors" EntitySet="results_factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_ribs_expertises" Association="db_expertiseModel.FK_results_ribs_expertises">
+            <End Role="expertises" EntitySet="expertises" />
+            <End Role="results_ribs" EntitySet="results_ribs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_factors_factors" Association="db_expertiseModel.FK_results_factors_factors">
+            <End Role="factors" EntitySet="factors" />
+            <End Role="results_factors" EntitySet="results_factors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_results_ribs_ribs" Association="db_expertiseModel.FK_results_ribs_ribs">
+            <End Role="ribs" EntitySet="ribs" />
+            <End Role="results_ribs" EntitySet="results_ribs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="results_expertise">
+          <Key>
+            <PropertyRef Name="id_result" />
+          </Key>
+          <Property Name="id_result" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="id_project" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Double" Nullable="false" />
+          <NavigationProperty Name="expertises" Relationship="db_expertiseModel.FK_result_expertise_expertises" FromRole="results_expertise" ToRole="expertises" />
+          <NavigationProperty Name="projects" Relationship="db_expertiseModel.FK_result_expertise_projects" FromRole="results_expertise" ToRole="projects" />
+        </EntityType>
+        <EntityType Name="results_expertises_criterions">
+          <Key>
+            <PropertyRef Name="id_result" />
+          </Key>
+          <Property Name="id_result" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="id_project" Type="Int32" Nullable="false" />
+          <Property Name="id_criterion" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Double" Nullable="false" />
+          <NavigationProperty Name="criterions" Relationship="db_expertiseModel.FK_results_expertises_criterions1" FromRole="results_expertises_criterions" ToRole="criterions" />
+          <NavigationProperty Name="expertises" Relationship="db_expertiseModel.FK_results_expertises_expertises1" FromRole="results_expertises_criterions" ToRole="expertises" />
+          <NavigationProperty Name="projects" Relationship="db_expertiseModel.FK_results_expertises_projects1" FromRole="results_expertises_criterions" ToRole="projects" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="expertises" Relationship="db_expertiseModel.FK_expertises_Status" FromRole="Status" ToRole="expertises" />
+          <NavigationProperty Name="experts_expertises" Relationship="db_expertiseModel.FK_experts_expertises_Status" FromRole="Status" ToRole="experts_expertises" />
+        </EntityType>
+        <Association Name="FK_results_expertises_criterions1">
+          <End Type="db_expertiseModel.criterions" Role="criterions" Multiplicity="1" />
+          <End Type="db_expertiseModel.results_expertises_criterions" Role="results_expertises_criterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="criterions">
+              <PropertyRef Name="id_criterion" />
+            </Principal>
+            <Dependent Role="results_expertises_criterions">
+              <PropertyRef Name="id_criterion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_expertises_Status">
+          <End Type="db_expertiseModel.Status" Role="Status" Multiplicity="1" />
+          <End Type="db_expertiseModel.expertises" Role="expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="expertises">
+              <PropertyRef Name="id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_result_expertise_expertises">
+          <End Type="db_expertiseModel.expertises" Role="expertises" Multiplicity="1" />
+          <End Type="db_expertiseModel.results_expertise" Role="results_expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="results_expertise">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_expertises_expertises1">
+          <End Type="db_expertiseModel.expertises" Role="expertises" Multiplicity="1" />
+          <End Type="db_expertiseModel.results_expertises_criterions" Role="results_expertises_criterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="results_expertises_criterions">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_experts_expertises_Status">
+          <End Type="db_expertiseModel.Status" Role="Status" Multiplicity="1" />
+          <End Type="db_expertiseModel.experts_expertises" Role="experts_expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="experts_expertises">
+              <PropertyRef Name="id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_result_expertise_projects">
+          <End Type="db_expertiseModel.projects" Role="projects" Multiplicity="1" />
+          <End Type="db_expertiseModel.results_expertise" Role="results_expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="results_expertise">
+              <PropertyRef Name="id_project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_expertises_projects1">
+          <End Type="db_expertiseModel.projects" Role="projects" Multiplicity="1" />
+          <End Type="db_expertiseModel.results_expertises_criterions" Role="results_expertises_criterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="results_expertises_criterions">
+              <PropertyRef Name="id_project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="factors">
+          <Key>
+            <PropertyRef Name="id_factor" />
+          </Key>
+          <Property Name="id_factor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="expertises" Relationship="db_expertiseModel.FK_factors_expertises" FromRole="factors" ToRole="expertises" />
+          <NavigationProperty Name="marks_factors" Relationship="db_expertiseModel.FK_marks_factors_factors" FromRole="factors" ToRole="marks_factors" />
+          <NavigationProperty Name="ribs" Relationship="db_expertiseModel.FK_ribs_factors" FromRole="factors" ToRole="ribs" />
+          <NavigationProperty Name="ribs1" Relationship="db_expertiseModel.FK_ribs_factors1" FromRole="factors" ToRole="ribs" />
+          <NavigationProperty Name="results_factors" Relationship="db_expertiseModel.FK_results_factors_factors" FromRole="factors" ToRole="results_factors" />
+        </EntityType>
+        <EntityType Name="marks_factors">
+          <Key>
+            <PropertyRef Name="id_mark" />
+          </Key>
+          <Property Name="id_mark" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expert" Type="Int32" Nullable="false" />
+          <Property Name="id_factor" Type="Int32" Nullable="false" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Double" Nullable="false" />
+          <NavigationProperty Name="expertises" Relationship="db_expertiseModel.FK_marks_factors_expertises" FromRole="marks_factors" ToRole="expertises" />
+          <NavigationProperty Name="experts" Relationship="db_expertiseModel.FK_marks_factors_experts" FromRole="marks_factors" ToRole="experts" />
+          <NavigationProperty Name="factors" Relationship="db_expertiseModel.FK_marks_factors_factors" FromRole="marks_factors" ToRole="factors" />
+        </EntityType>
+        <EntityType Name="marks_ribs">
+          <Key>
+            <PropertyRef Name="id_mark_rib" />
+          </Key>
+          <Property Name="id_mark_rib" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="id_rib" Type="Int32" Nullable="false" />
+          <Property Name="id_expert" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Double" Nullable="false" />
+          <NavigationProperty Name="expertises" Relationship="db_expertiseModel.FK_marks_ribs_expertises" FromRole="marks_ribs" ToRole="expertises" />
+          <NavigationProperty Name="experts" Relationship="db_expertiseModel.FK_marks_ribs_experts" FromRole="marks_ribs" ToRole="experts" />
+          <NavigationProperty Name="ribs" Relationship="db_expertiseModel.FK_marks_ribs_ribs" FromRole="marks_ribs" ToRole="ribs" />
+        </EntityType>
+        <EntityType Name="ribs">
+          <Key>
+            <PropertyRef Name="id_rib" />
+          </Key>
+          <Property Name="id_rib" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_factor_from" Type="Int32" Nullable="false" />
+          <Property Name="id_factor_in" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="factors" Relationship="db_expertiseModel.FK_ribs_factors" FromRole="ribs" ToRole="factors" />
+          <NavigationProperty Name="factors1" Relationship="db_expertiseModel.FK_ribs_factors1" FromRole="ribs" ToRole="factors" />
+          <NavigationProperty Name="marks_ribs" Relationship="db_expertiseModel.FK_marks_ribs_ribs" FromRole="ribs" ToRole="marks_ribs" />
+          <NavigationProperty Name="results_ribs" Relationship="db_expertiseModel.FK_results_ribs_ribs" FromRole="ribs" ToRole="results_ribs" />
+        </EntityType>
+        <Association Name="FK_factors_expertises">
+          <End Type="db_expertiseModel.expertises" Role="expertises" Multiplicity="1" />
+          <End Type="db_expertiseModel.factors" Role="factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="factors">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_factors_expertises">
+          <End Type="db_expertiseModel.expertises" Role="expertises" Multiplicity="1" />
+          <End Type="db_expertiseModel.marks_factors" Role="marks_factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="marks_factors">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_ribs_expertises">
+          <End Type="db_expertiseModel.expertises" Role="expertises" Multiplicity="1" />
+          <End Type="db_expertiseModel.marks_ribs" Role="marks_ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="marks_ribs">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_factors_experts">
+          <End Type="db_expertiseModel.experts" Role="experts" Multiplicity="1" />
+          <End Type="db_expertiseModel.marks_factors" Role="marks_factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="experts">
+              <PropertyRef Name="id_expert" />
+            </Principal>
+            <Dependent Role="marks_factors">
+              <PropertyRef Name="id_expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_ribs_experts">
+          <End Type="db_expertiseModel.experts" Role="experts" Multiplicity="1" />
+          <End Type="db_expertiseModel.marks_ribs" Role="marks_ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="experts">
+              <PropertyRef Name="id_expert" />
+            </Principal>
+            <Dependent Role="marks_ribs">
+              <PropertyRef Name="id_expert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_factors_factors">
+          <End Type="db_expertiseModel.factors" Role="factors" Multiplicity="1" />
+          <End Type="db_expertiseModel.marks_factors" Role="marks_factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factors">
+              <PropertyRef Name="id_factor" />
+            </Principal>
+            <Dependent Role="marks_factors">
+              <PropertyRef Name="id_factor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ribs_factors">
+          <End Type="db_expertiseModel.factors" Role="factors" Multiplicity="1" />
+          <End Type="db_expertiseModel.ribs" Role="ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factors">
+              <PropertyRef Name="id_factor" />
+            </Principal>
+            <Dependent Role="ribs">
+              <PropertyRef Name="id_factor_from" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ribs_factors1">
+          <End Type="db_expertiseModel.factors" Role="factors" Multiplicity="1" />
+          <End Type="db_expertiseModel.ribs" Role="ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factors">
+              <PropertyRef Name="id_factor" />
+            </Principal>
+            <Dependent Role="ribs">
+              <PropertyRef Name="id_factor_in" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marks_ribs_ribs">
+          <End Type="db_expertiseModel.ribs" Role="ribs" Multiplicity="1" />
+          <End Type="db_expertiseModel.marks_ribs" Role="marks_ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ribs">
+              <PropertyRef Name="id_rib" />
+            </Principal>
+            <Dependent Role="marks_ribs">
+              <PropertyRef Name="id_rib" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="results_factors">
+          <Key>
+            <PropertyRef Name="id_mark_result_factor" />
+          </Key>
+          <Property Name="id_mark_result_factor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="id_factor" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Double" Nullable="false" />
+          <NavigationProperty Name="expertises" Relationship="db_expertiseModel.FK_results_factors_expertises" FromRole="results_factors" ToRole="expertises" />
+          <NavigationProperty Name="factors" Relationship="db_expertiseModel.FK_results_factors_factors" FromRole="results_factors" ToRole="factors" />
+        </EntityType>
+        <EntityType Name="results_ribs">
+          <Key>
+            <PropertyRef Name="id_result_mark_rib" />
+          </Key>
+          <Property Name="id_result_mark_rib" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_expertise" Type="Int32" Nullable="false" />
+          <Property Name="id_rib" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Double" Nullable="false" />
+          <NavigationProperty Name="expertises" Relationship="db_expertiseModel.FK_results_ribs_expertises" FromRole="results_ribs" ToRole="expertises" />
+          <NavigationProperty Name="ribs" Relationship="db_expertiseModel.FK_results_ribs_ribs" FromRole="results_ribs" ToRole="ribs" />
+        </EntityType>
+        <Association Name="FK_results_factors_expertises">
+          <End Type="db_expertiseModel.expertises" Role="expertises" Multiplicity="1" />
+          <End Type="db_expertiseModel.results_factors" Role="results_factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="results_factors">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_ribs_expertises">
+          <End Type="db_expertiseModel.expertises" Role="expertises" Multiplicity="1" />
+          <End Type="db_expertiseModel.results_ribs" Role="results_ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expertises">
+              <PropertyRef Name="id_expertise" />
+            </Principal>
+            <Dependent Role="results_ribs">
+              <PropertyRef Name="id_expertise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_factors_factors">
+          <End Type="db_expertiseModel.factors" Role="factors" Multiplicity="1" />
+          <End Type="db_expertiseModel.results_factors" Role="results_factors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factors">
+              <PropertyRef Name="id_factor" />
+            </Principal>
+            <Dependent Role="results_factors">
+              <PropertyRef Name="id_factor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_results_ribs_ribs">
+          <End Type="db_expertiseModel.ribs" Role="ribs" Multiplicity="1" />
+          <End Type="db_expertiseModel.results_ribs" Role="results_ribs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ribs">
+              <PropertyRef Name="id_rib" />
+            </Principal>
+            <Dependent Role="results_ribs">
+              <PropertyRef Name="id_rib" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище db_expertiseModelContainer" CdmEntityContainer="db_expertiseEntities">
+          <EntitySetMapping Name="criterions">
+            <EntityTypeMapping TypeName="db_expertiseModel.criterions">
+              <MappingFragment StoreEntitySet="criterions">
+                <ScalarProperty Name="id_criterion" ColumnName="id_criterion" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expertises">
+            <EntityTypeMapping TypeName="db_expertiseModel.expertises">
+              <MappingFragment StoreEntitySet="expertises">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expertises_criterions">
+            <EntityTypeMapping TypeName="db_expertiseModel.expertises_criterions">
+              <MappingFragment StoreEntitySet="expertises_criterions">
+                <ScalarProperty Name="id_expertises_criterions" ColumnName="id_expertises_criterions" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_criterion" ColumnName="id_criterion" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="experts">
+            <EntityTypeMapping TypeName="db_expertiseModel.experts">
+              <MappingFragment StoreEntitySet="experts">
+                <ScalarProperty Name="access" ColumnName="access" />
+                <ScalarProperty Name="id_expert" ColumnName="id_expert" />
+                <ScalarProperty Name="second_name" ColumnName="second_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="experts_expertises">
+            <EntityTypeMapping TypeName="db_expertiseModel.experts_expertises">
+              <MappingFragment StoreEntitySet="experts_expertises">
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+                <ScalarProperty Name="id_expertises_experts" ColumnName="id_expertises_experts" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_expert" ColumnName="id_expert" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marks">
+            <EntityTypeMapping TypeName="db_expertiseModel.marks">
+              <MappingFragment StoreEntitySet="marks">
+                <ScalarProperty Name="id_mark" ColumnName="id_mark" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_expert" ColumnName="id_expert" />
+                <ScalarProperty Name="id_project" ColumnName="id_project" />
+                <ScalarProperty Name="id_criterion" ColumnName="id_criterion" />
+                <ScalarProperty Name="value" ColumnName="value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="projects">
+            <EntityTypeMapping TypeName="db_expertiseModel.projects">
+              <MappingFragment StoreEntitySet="projects">
+                <ScalarProperty Name="id_project" ColumnName="id_project" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="projects_expertises">
+            <EntityTypeMapping TypeName="db_expertiseModel.projects_expertises">
+              <MappingFragment StoreEntitySet="projects_expertises">
+                <ScalarProperty Name="id_project_expertise" ColumnName="id_project_expertise" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_project" ColumnName="id_project" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="results_experts">
+            <EntityTypeMapping TypeName="db_expertiseModel.results_experts">
+              <MappingFragment StoreEntitySet="results_experts">
+                <ScalarProperty Name="id_result_expert" ColumnName="id_result_expert" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_project" ColumnName="id_project" />
+                <ScalarProperty Name="id_expert" ColumnName="id_expert" />
+                <ScalarProperty Name="value" ColumnName="value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="results_expertise">
+            <EntityTypeMapping TypeName="db_expertiseModel.results_expertise">
+              <MappingFragment StoreEntitySet="results_expertise">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id_project" ColumnName="id_project" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_result" ColumnName="id_result" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="results_expertises_criterions">
+            <EntityTypeMapping TypeName="db_expertiseModel.results_expertises_criterions">
+              <MappingFragment StoreEntitySet="results_expertises_criterions">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id_criterion" ColumnName="id_criterion" />
+                <ScalarProperty Name="id_project" ColumnName="id_project" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_result" ColumnName="id_result" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="db_expertiseModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="name_status" ColumnName="name_status" />
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="factors">
+            <EntityTypeMapping TypeName="db_expertiseModel.factors">
+              <MappingFragment StoreEntitySet="factors">
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_factor" ColumnName="id_factor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marks_factors">
+            <EntityTypeMapping TypeName="db_expertiseModel.marks_factors">
+              <MappingFragment StoreEntitySet="marks_factors">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_factor" ColumnName="id_factor" />
+                <ScalarProperty Name="id_expert" ColumnName="id_expert" />
+                <ScalarProperty Name="id_mark" ColumnName="id_mark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marks_ribs">
+            <EntityTypeMapping TypeName="db_expertiseModel.marks_ribs">
+              <MappingFragment StoreEntitySet="marks_ribs">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id_expert" ColumnName="id_expert" />
+                <ScalarProperty Name="id_rib" ColumnName="id_rib" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_mark_rib" ColumnName="id_mark_rib" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ribs">
+            <EntityTypeMapping TypeName="db_expertiseModel.ribs">
+              <MappingFragment StoreEntitySet="ribs">
+                <ScalarProperty Name="id_factor_in" ColumnName="id_factor_in" />
+                <ScalarProperty Name="id_factor_from" ColumnName="id_factor_from" />
+                <ScalarProperty Name="id_rib" ColumnName="id_rib" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="results_factors">
+            <EntityTypeMapping TypeName="db_expertiseModel.results_factors">
+              <MappingFragment StoreEntitySet="results_factors">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id_factor" ColumnName="id_factor" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_mark_result_factor" ColumnName="id_mark_result_factor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="results_ribs">
+            <EntityTypeMapping TypeName="db_expertiseModel.results_ribs">
+              <MappingFragment StoreEntitySet="results_ribs">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id_rib" ColumnName="id_rib" />
+                <ScalarProperty Name="id_expertise" ColumnName="id_expertise" />
+                <ScalarProperty Name="id_result_mark_rib" ColumnName="id_result_mark_rib" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
